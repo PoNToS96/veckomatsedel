@@ -1,0 +1,28 @@
+package elffors.veckomatsedel.projekt;
+
+public class Matratt {
+    private String ratt;
+    private String recept;
+
+    public Matratt(String ratt) {
+        this.ratt = ratt;
+        this.recept = "Rätten saknar recept";
+    }
+
+    public String getRatt() {
+        return this.ratt;
+    }
+
+    public void setRatt(String ratt) {
+        this.ratt = ratt;
+        this.recept = "Rätten saknar recept";
+    }
+
+    public String getRecept() {
+        return this.recept;
+    }
+
+    public void setRecept(String recept) {
+        this.recept = recept;
+    }
+}
