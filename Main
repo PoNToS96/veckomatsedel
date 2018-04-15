@@ -56,7 +56,7 @@ public class Main {
     public static void skrivMatLista(LinkedList<Matratt> matLista) {
         System.out.println("\nLista över maträtter:" + "\n------------------------------------");
         for (Matratt ratt : matLista)
-            System.out.println("Rätt: " + ratt.getRatt() + "\nRecept: " + ratt.getRecept() + "\n-----------------------------------");
+            System.out.println(ratt.toString() + "\n-----------------------------------");
 
     }
 }
