@@ -25,4 +25,11 @@ public class Matratt {
     public void setRecept(String recept) {
         this.recept = recept;
     }
+    
+    @Override
+    public String toString() {
+        return "Rätt: " + ratt +
+                "\nRecept: " + recept;
+    }
+   
 }
