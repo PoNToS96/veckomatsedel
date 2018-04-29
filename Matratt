@@ -9,6 +9,11 @@ public class Matratt {
         this.recept = "Rätten saknar recept";
     }
 
+    public Matratt(String ratt, String recept) {
+        this.ratt = ratt;
+        this.recept = recept;
+    }
+
     public String getRatt() {
         return this.ratt;
     }
@@ -25,11 +30,10 @@ public class Matratt {
     public void setRecept(String recept) {
         this.recept = recept;
     }
-    
+
     @Override
     public String toString() {
         return "Rätt: " + ratt +
                 "\nRecept: " + recept;
     }
-   
 }
