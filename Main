@@ -1,63 +1,25 @@
 package elffors.veckomatsedel.projekt;
 
-import java.util.LinkedList;
-
 public class Main {
 
     public static void main(String[] args) {
         Matratt ratt1 = new Matratt("Korv och makaroner");
-        ratt1.setRecept("Korv, koka makaroner");
-
-        Matratt ratt2 = new Matratt("Korvstroganoff");
-        ratt2.setRecept("Grädde, mjölk, korv");
-
+        Matratt ratt2 = new Matratt("Korvstroganoff", "Grädde, mjölk, korv");
         Matratt ratt3 = new Matratt("Fetaostsallad");
+        Matratt ratt4 = new Matratt("Quorngryta", "Quorn, creme fraiche");
+        Matratt ratt5 = new Matratt("Pannkakor", "Ägg, mjölk, mjöl");
 
-        Matratt ratt4 = new Matratt("Quorngryta");
-        ratt4.setRecept("Quorn, creme fraiche");
+        HanteraMatratter lista = new HanteraMatratter();
 
-        Matratt ratt5 = new Matratt("Pannkakor");
-        ratt5.setRecept("Ägg, mjölk, mjöl");
-
-        LinkedList<Matratt> minMatLista = new LinkedList<>();
-
-        laggTillMatratt(ratt2, minMatLista);
-        laggTillMatratt(ratt3, minMatLista);
-        laggTillMatratt(ratt1, minMatLista);
-        laggTillMatratt(ratt4, minMatLista);
-        laggTillMatratt(ratt5, minMatLista);
-        laggTillMatratt(ratt5, minMatLista);
-        laggTillMatratt(ratt1, minMatLista);
-        skrivMatLista(minMatLista);
-
-    }
-
-    private static boolean laggTillMatratt(Matratt ratt, LinkedList<Matratt> matLista) {
-        boolean kontroll = true;
-        if (matLista.size() == 0) {
-            matLista.add(ratt);
-            System.out.println("Lagt till " + matLista.get(0).getRatt());
-            return true;
-        } else {
-            for (Matratt enRatt : matLista)
-                if (enRatt.getRatt().equals(ratt.getRatt())) {
-                    System.out.println("Finns redan i listan");
-                    kontroll = false;
-                }
-        }
-
-        if (kontroll) {
-            matLista.add(ratt);
-            System.out.println("Lagt till " + ratt.getRatt());
-        }
-        return kontroll;
-    }
-
-    public static void skrivMatLista(LinkedList<Matratt> matLista) {
-        System.out.println("\nLista över maträtter:" + "\n------------------------------------");
-        for (Matratt ratt : matLista)
-            System.out.println(ratt + "\n-----------------------------------");
+        lista.laggTillMatratt(ratt1);
+        lista.laggTillMatratt(ratt2);
+        lista.laggTillMatratt(ratt3);
+        lista.laggTillMatratt(ratt3);
+        lista.laggTillMatratt(ratt4);
+        lista.laggTillMatratt(ratt5);
+        lista.laggTillMatratt(ratt5);
+        lista.laggTillMatratt(ratt1);
+        lista.skrivMatLista();
 
     }
 }
-
