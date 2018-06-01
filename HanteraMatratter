@@ -21,7 +21,7 @@ public class HanteraMatratter {
         boolean kontroll = true;
         if (minMatLista.size() == 0) {
             minMatLista.add(ratt);
-            System.out.println("\n\nLagt till " + ratt.getRatt() + " i " + getListNamn());
+            System.out.println("Lagt till " + ratt.getRatt() + " i " + getListNamn());
             kontroll = false;
         } else {
             for (Matratt enRatt : minMatLista)
@@ -38,7 +38,9 @@ public class HanteraMatratter {
 
     public void skrivMatLista() {
         System.out.println("\n" + getListNamn() + ":" + "\n------------------------------------");
-        for (Matratt ratt : minMatLista)
+        for (Matratt ratt : minMatLista) {
             System.out.println(ratt + "\n-----------------------------------");
+        }
+        System.out.println("\n");
     }
 }
