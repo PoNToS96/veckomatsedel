@@ -1,1 +1,44 @@
+package elffors.veckomatsedel.projekt;
 
+import java.util.LinkedList;
+import java.util.List;
+
+public class HanteraMatratter {
+
+    private List<Matratt> minMatLista;
+    private String listNamn;
+
+    public HanteraMatratter(String listNamn) {
+        minMatLista = new LinkedList<>();
+        this.listNamn = listNamn;
+    }
+
+    public String getListNamn() {
+        return listNamn;
+    }
+
+    public void laggTillMatratt(Matratt ratt) {
+        boolean kontroll = true;
+        if (minMatLista.size() == 0) {
+            minMatLista.add(ratt);
+            System.out.println("\n\nLagt till " + ratt.getRatt() + " i " + getListNamn());
+            kontroll = false;
+        } else {
+            for (Matratt enRatt : minMatLista)
+                if (enRatt.getRatt().equals(ratt.getRatt())) {
+                    System.out.println(enRatt.getRatt() + " finns redan i " + getListNamn());
+                    kontroll = false;
+                }
+        }
+        if (kontroll) {
+            minMatLista.add(ratt);
+            System.out.println("Lagt till " + ratt.getRatt() + " i " + getListNamn());
+        }
+    }
+
+    public void skrivMatLista() {
+        System.out.println("\n" + getListNamn() + ":" + "\n------------------------------------");
+        for (Matratt ratt : minMatLista)
+            System.out.println(ratt + "\n-----------------------------------");
+    }
+}
