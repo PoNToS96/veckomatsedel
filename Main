@@ -9,7 +9,8 @@ public class Main {
         Matratt ratt4 = new Matratt("Quorngryta", "Quorn, creme fraiche");
         Matratt ratt5 = new Matratt("Pannkakor", "Ägg, mjölk, mjöl");
 
-        HanteraMatratter lista = new HanteraMatratter();
+        HanteraMatratter lista = new HanteraMatratter("Pontus matlista");
+        HanteraMatratter lista2 = new HanteraMatratter("Herkules matlista");
 
         lista.laggTillMatratt(ratt1);
         lista.laggTillMatratt(ratt2);
@@ -20,6 +21,11 @@ public class Main {
         lista.laggTillMatratt(ratt5);
         lista.laggTillMatratt(ratt1);
         lista.skrivMatLista();
+
+        lista2.laggTillMatratt(ratt5);
+        lista2.laggTillMatratt(ratt5);
+        lista2.laggTillMatratt(ratt1);
+        lista2.skrivMatLista();
 
     }
 }
