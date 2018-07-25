@@ -1,31 +1,22 @@
-package elffors.veckomatsedel.projekt;
+package com.Elffors.veckoMat;
 
-public class Main {
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+
+public class Main extends Application {
+
+    @Override
+    public void start(Stage primaryStage) throws Exception{
+        Parent root = FXMLLoader.load(getClass().getResource("mainwindow.fxml"));
+        primaryStage.setTitle("Veckomatsedel");
+        primaryStage.setScene(new Scene(root, 700, 400));
+        primaryStage.show();
+    }
 
     public static void main(String[] args) {
-        Matratt ratt1 = new Matratt("Korv och makaroner");
-        Matratt ratt2 = new Matratt("Korvstroganoff", "Grädde, mjölk, korv");
-        Matratt ratt3 = new Matratt("Fetaostsallad");
-        Matratt ratt4 = new Matratt("Quorngryta", "Quorn, creme fraiche");
-        Matratt ratt5 = new Matratt("Pannkakor", "Ägg, mjölk, mjöl");
-
-        HanteraMatratter lista = new HanteraMatratter("Astrids matlista");
-        HanteraMatratter lista2 = new HanteraMatratter("Herkules matlista");
-
-        lista.laggTillMatratt(ratt1);
-        lista.laggTillMatratt(ratt2);
-        lista.laggTillMatratt(ratt3);
-        lista.laggTillMatratt(ratt3);
-        lista.laggTillMatratt(ratt4);
-        lista.laggTillMatratt(ratt1);
-        lista.laggTillMatratt(ratt2);
-        lista.laggTillMatratt(ratt5);
-        lista.skrivMatLista();
-
-        lista2.laggTillMatratt(ratt5);
-        lista2.laggTillMatratt(ratt5);
-        lista2.laggTillMatratt(ratt1);
-        lista2.skrivMatLista();
-
+        launch(args);
     }
 }
