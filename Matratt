@@ -1,17 +1,31 @@
-package elffors.veckomatsedel.projekt;
+package com.Elffors.veckoMat;
+
+import java.time.LocalDate;
 
 public class Matratt {
+
+    private LocalDate datum;
     private String ratt;
     private String recept;
 
-    public Matratt(String ratt) {
+    public Matratt(LocalDate datum, String ratt) {
+        this.datum = datum;
         this.ratt = ratt;
         this.recept = "Rätten saknar recept";
     }
 
-    public Matratt(String ratt, String recept) {
+    public Matratt(LocalDate datum, String ratt, String recept) {
+        this.datum = datum;
         this.ratt = ratt;
         this.recept = recept;
+    }
+
+    public LocalDate getDatum() {
+        return this.datum;
+    }
+
+    public void setDatum() {
+        this.datum = datum;
     }
 
     public String getRatt() {
@@ -33,7 +47,6 @@ public class Matratt {
 
     @Override
     public String toString() {
-        return "Rätt: " + ratt +
-                "\nRecept: " + recept;
+        return datum + ": " + ratt;
     }
 }
