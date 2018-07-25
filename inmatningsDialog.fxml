@@ -1,0 +1,22 @@
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<DialogPane fx:controller="com.Elffors.veckoMat.DialogController"
+            xmlns:fx="http://javafx.com/fxml">
+
+    <headerText>
+        Skriv in ny eller ändra redan inlagd maträtt nedan
+    </headerText>
+    <content>
+        <GridPane hgap="10" vgap="10">
+            <Label text="Maträtt:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+            <TextField fx:id="matrattsInmatning" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+            <Label text="Recept:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+            <TextArea fx:id="receptInmatning" GridPane.rowIndex="1" GridPane.columnIndex="1"
+                      wrapText="true"/>
+            <Label text="Datum" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+            <DatePicker fx:id="datumValjare" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+        </GridPane>
+    </content>
+
+</DialogPane>
