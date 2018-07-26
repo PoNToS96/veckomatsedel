@@ -2,6 +2,7 @@ package com.Elffors.veckoMat;
 
 import java.io.IOException;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.SortedList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.ButtonType;
@@ -25,7 +26,8 @@ public class Controller {
 
     public void initialize() {
         lista = MatrattPerDag.getInstans().getMatrattPerDag();
-        rattListView.setItems(lista);
+        SortedList<Matratt> sorteradLista = new SortedList<>(lista);
+        rattListView.setItems(sorteradLista.sorted());
     }
 
     @FXML
