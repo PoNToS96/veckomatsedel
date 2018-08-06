@@ -5,15 +5,11 @@ import javafx.collections.ObservableList;
 import javafx.collections.transformation.SortedList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.Dialog;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TextArea;
+import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
 import java.util.*;
 
 public class Controller {
-    private ObservableList<Matratt> lista;
 
     @FXML
     private ListView<Matratt> rattListView;
@@ -25,7 +21,7 @@ public class Controller {
     private GridPane gridPane;
 
     public void initialize() {
-        lista = MatrattPerDag.getInstans().getMatrattPerDag();
+        ObservableList<Matratt> lista = MatrattPerDag.getInstans().getMatrattPerDag();
         SortedList<Matratt> sorteradLista = new SortedList<>(lista);
         rattListView.setItems(sorteradLista.sorted());
     }
