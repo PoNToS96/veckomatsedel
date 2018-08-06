@@ -1,13 +1,13 @@
 package com.Elffors.veckoMat;
 
 import javafx.fxml.FXML;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
-
+import javafx.scene.control.*;
 import java.time.LocalDate;
 
 public class DialogController {
+
+    @FXML
+    private DatePicker datumValjare;
 
     @FXML
     private TextField matrattsInmatning;
@@ -15,14 +15,22 @@ public class DialogController {
     @FXML
     private TextArea receptInmatning;
 
-    @FXML
-    private DatePicker datumValjare;
-
     public void processResult() {
+        LocalDate datum = datumValjare.getValue();
         String ratt = matrattsInmatning.getText().trim();
         String recept = receptInmatning.getText().trim();
-        LocalDate datum = datumValjare.getValue();
-        Matratt nyMatratt = new Matratt(datum, ratt, recept);
-        MatrattPerDag.getInstans().laggTillMatratt(nyMatratt);
+        if (datum != null) {
+            if (!ratt.equals("") && !recept.equals("")) {
+                MatrattPerDag.getInstans().laggTillMatratt(new Matratt(datum, ratt, recept));
+            } else if (!ratt.equals("") && recept.equals("")) {
+                MatrattPerDag.getInstans().laggTillMatratt(new Matratt(datum, ratt));
+            } else {
+                Alert alert = new Alert(Alert.AlertType.ERROR, "Du måste skriva vad maträtten heter");
+                alert.showAndWait();
+            }
+        } else {
+            Alert alert = new Alert(Alert.AlertType.ERROR, "Du måste ange ett datum");
+            alert.showAndWait();
+        }
     }
 }
